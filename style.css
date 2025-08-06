@@ -47,26 +47,37 @@ body{
    
 }
 
-.titleDiv{
+.titleDiv {
     display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  background-color: #e0e0e0;
-  padding: 6px 10px;
-  border-radius: 5px;
-}
-
-.titleDiv .edit,
-.titleDiv .delete {
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 18px;
-}
-
-.titleDiv .edit:hover,
-.titleDiv .delete:hover {
-  background-color: #e0e0e02f ;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    padding: 6px 10px;
+    border-radius: 5px;
 }
 
 
+.btnGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.edit,
+.delete {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.edit:hover,
+.delete:hover {
+    background-color: #000000c9;
+    border-radius: 3px;
+}
+
+
+.inputEdit{
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
