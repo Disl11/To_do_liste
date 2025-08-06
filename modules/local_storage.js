@@ -25,7 +25,7 @@ export function saveAllListsFromDOM() {
   for (let i = 0; i < allLists.length; i++) {
     const list = allLists[i];
     
-    // Recherche des éléments, en testant leur existence
+    // Recherche des éléments, en testant leur existencee
     const titleElement = list.querySelector(".titleText");
     let titre = "Sans titre";
     if (titleElement && titleElement.textContent) {

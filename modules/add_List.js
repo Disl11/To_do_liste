@@ -2,26 +2,33 @@ import { getLists, saveAllListsFromDOM } from "./local_storage.js";
 
 // Fonction utilitaire pour créer une liste dans le DOM (utilisée au chargement ET à l'ajout)
 function createListInDOM(titre) {
+
     const area = document.querySelector("#area");
 
+
+    //Création  de la div pour avoir une nouvelle liste
     const newList = document.createElement("div");
     newList.className = "newList";
 
-    // Titre + boutons
+    // div pour titre de la liste
     const titleDiv = document.createElement("div");
     titleDiv.className = "titleDiv";
 
+    // Crée le titre de  la liste
     const titleText = document.createElement("span");
     titleText.className = "titleText";
     titleText.textContent = titre;
 
+    // Div pour regrouper  bouton delete + edit
     const btnGroup = document.createElement("div");
     btnGroup.className = "btnGroup";
 
+    // Ajouter le bouton edit
     const btnEdit = document.createElement("button");
     btnEdit.className = "edit";
     btnEdit.textContent = "✏️";
 
+    // Ajouter le bouton delete 
     const btnDelete = document.createElement("button");
     btnDelete.className = "delete";
     btnDelete.textContent = "✖";
@@ -31,7 +38,7 @@ function createListInDOM(titre) {
     titleDiv.appendChild(titleText);
     titleDiv.appendChild(btnGroup);
 
-    // Zone de texte
+    // ceation de texte area
     const divText = document.createElement("div");
     divText.className = "divText";
 
@@ -47,7 +54,7 @@ function createListInDOM(titre) {
     newList.appendChild(divText);
     area.appendChild(newList);
 
-    // Suppression
+    // Addeven click  pour suprimer liste 
     btnDelete.addEventListener("click", function () {
         area.removeChild(newList);
         saveAllListsFromDOM();
@@ -65,6 +72,7 @@ function createListInDOM(titre) {
             const newTitle = inputEdit.value || "Sans titre";
             titleText.textContent = newTitle;
             titleDiv.replaceChild(titleText, inputEdit);
+            // appel du storage
             saveAllListsFromDOM();
         });
         inputEdit.addEventListener("keypress", (e) => {
@@ -98,13 +106,13 @@ export function add_list() {
         if (titleTask === "") {
             return;
         }
-        createListInDOM(titleTask, "");
+        createListInDOM(titleTask, ""); // ?????????????
         input.value = "";
 
         saveAllListsFromDOM();
     });
 
-    // Ajout avec la touche Entrée
+    // Ajout avec la touche Entréer
     input.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
             btnAjouter.click();
