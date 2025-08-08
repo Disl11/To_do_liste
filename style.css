@@ -36,58 +36,27 @@ body {
     gap: 10px;
 }
 
-.newList {
-    border: 2px solid black;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
+
+.create-list{
+border: solid;
+border-radius: 5px;
+padding: 10px;
 }
 
-.titleDiv {
+.title-liste{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-weight: bold;
-    background-color: #e0e0e0;
-    padding: 6px 10px;
-    border-radius: 5px;
 }
 
-.btnGroup {
+.regroup-btn{
     display: flex;
-    gap: 10px;
+    margin-left: 10px;
+    gap: 3px;
 }
 
-.edit,
-.delete,
-.ajouter,
-.addTache {
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.edit:hover,
-.delete:hover {
-    background-color: #000000c9;
-    border-radius: 3px;
-    color: white;
-}
-
-.inputEdit {
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-
-.divText{
+.liste-tache{
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.textarea{
-    margin-bottom: 5px ;
-    margin-top: 5px ;
 }
