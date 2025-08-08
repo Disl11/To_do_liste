@@ -1,0 +1,11 @@
+1. afficher un item de la liste avec todolist.todos[0]
+    penser à mettre des id aux input des items comme par ex inputitem+todolist.name+item1
+2. afficher tous les items de la liste en dur => transformer le point 1 en itération
+    le 1 de l'id doit changer en fonction de la boucle
+3. Afficher deux listes avec uniquement leur nom avec la variables todolists
+    commenter l'afficher les items de la toto
+    attention à ajouter un 1 puis un 2 puis 3 à la fin des id
+4. afficher deux listex avec leur item avec la variables todolists
+5. supprimer les deux variabkes locales todolist et todolists
+6. Mettre un parametres todolists dans la fonction displayList
+7. explication var globale pour pas te faire te trop chier
