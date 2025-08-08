@@ -1,3 +1,5 @@
+Affichage
+
 1. afficher un item de la liste avec todolist.todos[0]
     penser à mettre des id aux input des items comme par ex inputitem+todolist.name+item1
 2. afficher tous les items de la liste en dur => transformer le point 1 en itération
@@ -9,3 +11,11 @@
 5. supprimer les deux variabkes locales todolist et todolists
 6. Mettre un parametres todolists dans la fonction displayList
 7. explication var globale pour pas te faire te trop chier
+
+
+Saisie
+
+
+Local storage
+
+Drag and drop
