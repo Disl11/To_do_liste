@@ -1,4 +1,3 @@
-// import { add_list } from "./modules/add_list.js";
 <<<<<<< Updated upstream
 
 // add_list();
@@ -180,6 +179,7 @@ window.addEventListener("load", () => {
 
 const btnAjouter = document.querySelector(".ajouter");
 const input = document.querySelector(".input")
+const input = document.querySelector("#inputList")
 
 
 function addToDoList() {
@@ -197,3 +197,4 @@ function addToDoList() {
 btnAjouter.addEventListener("click", addToDoList);
 
 >>>>>>> Stashed changes
+
