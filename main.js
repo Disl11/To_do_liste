@@ -103,6 +103,5 @@ function addToDoList() {
 
 btnAjouter.addEventListener("click", addToDoList);
 
->>>>>>> Stashed changes
 
 
