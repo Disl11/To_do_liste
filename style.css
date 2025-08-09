@@ -38,16 +38,10 @@ body {
     gap: 10px;
 }
 
-<<<<<<< Updated upstream
 
-.create-list{
-border: solid;
-border-radius: 5px;
-padding: 10px;
-=======
 #list{
    border: solid;
->>>>>>> Stashed changes
+
 }
 
 .title-liste{
@@ -56,7 +50,7 @@ padding: 10px;
     align-items: center;
 }
 
-<<<<<<< Updated upstream
+
 .regroup-btn{
     display: flex;
     margin-left: 10px;
@@ -67,7 +61,6 @@ padding: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-=======
 #listTask{
     display: flex;
     flex-direction: column;
@@ -76,5 +69,5 @@ padding: 10px;
 .divIB{
     display: flex;
     justify-content: center;
->>>>>>> Stashed changes
+
 }
