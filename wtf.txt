@@ -1,20 +1,45 @@
 Affichage
-
+- créer une page html en dur avec deux todo listes affichées
+- Créer en dur une todolist : var todolist = {name:"nbrto", todos : ["ab",'biub'}};
+- Afficher le nom cette todo en générant le code à insérer dans la page htm
 1. afficher un item de la liste avec todolist.todos[0]
     penser à mettre des id aux input des items comme par ex inputitem+todolist.name+item1
-2. afficher tous les items de la liste en dur => transformer le point 1 en itération
+2. afficher tous les items de la liste todolist => transformer le point 1 en itération
     le 1 de l'id doit changer en fonction de la boucle
+    résultat attendu
+        <input id="inputitem+todolist.name+item1"...
+        <input id="inputitem+todolist.name+item2"...
 3. Afficher deux listes avec uniquement leur nom avec la variables todolists
-    commenter l'afficher les items de la toto
-    attention à ajouter un 1 puis un 2 puis 3 à la fin des id
+        les input des names des listes auront comme id : 
+            inputNameList.id = "inputNameList"+cpt; // cpt init à 1 avant la boucle
 4. afficher deux listex avec leur item avec la variables todolists
-5. supprimer les deux variabkes locales todolist et todolists
+        les input des item des listes auront comme id : 
+             "inputNameList"+cpt+cptitem; // cptitem init à 1 avant la boucle et cpt le compteur des listes
+5. commenter les deux variabkes locales todolist et todolists
 6. Mettre un parametres todolists dans la fonction displayList
-7. explication var globale pour pas te faire te trop chier
-
 
 Saisie
+1. On va commencer par créer une liste de todo list vide au chargement de la page et demander de l'affichzr pour anticipae
+let todos = [];
+window.addEventListener("load", () =>{
+    todos = [];
+    displayLists(todos);
+});
+2. Créer une fonction addToDoList qui est appelée au clic sur le bouton pour ajouter une liste
+    on commence par créer une todolist avec en name la value de l'input et dans todos une liste contenant un élément "" (chaine vide pour créer le premier input)
+    on push cette liste dans todos
+    on appelle displayLists(todos)
 
+3. Ajouter un item à cette liste 
+    ajouter une fonction addToDoInList(todolist) // je t'expliquerai comment init le param à l'oral
+    qui ajoute dans todolist.todos la value de l'item
+    puis appelle displayList(todos)
+        dans le code qui génère les input des items dans displayList
+            ajoçuter un addListenerEvent sur ces input pour appeler addToDoInList(tdl) // explication à l'oral
+
+4. Modifier une item
+
+5. Supprimer une item
 
 Local storage
 
