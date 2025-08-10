@@ -16,10 +16,9 @@ function displayLists(todolists) {
     const h3NameList = document.createElement("h3");
     h3NameList.id = "h3NameList";
     const inputNameList = document.createElement("input");
-    inputNameList.id = "inputNameList";
+    // règle : l'id doit être unique
+    inputNameList.id = "inputNameList-"+y;  // inputNameList-0 pour la première liste inputNameList-1 pour le seconde liste etc...
     inputNameList.value = todolists[y].name;
-
-
 
     h3NameList.appendChild(inputNameList);
 
@@ -30,13 +29,13 @@ function displayLists(todolists) {
 
     const btnEditList = document.createElement("button");
     btnEditList.className = "edit";
-    btnEditList.id = "btnEditList";
+    btnEditList.id = "btnEditList-"+y;
     btnEditList.innerHTML = "✏️";
     divNameBtn.appendChild(btnEditList);
 
     const btnSupprList = document.createElement("button");
     btnSupprList.className = "delete";
-    btnSupprList.id = "btnSupprList";
+    btnSupprList.id = "btnSupprList-"+y;
     btnSupprList.innerHTML = "X";
 
     divNameBtn.appendChild(btnSupprList);
@@ -47,17 +46,17 @@ function displayLists(todolists) {
 
     const btnAddTask = document.createElement("button")
     btnAddTask.className = "addTask"
-    btnAddTask.id = "btnAddTask"
+    btnAddTask.id = "btnAddTaskList-"+y;
     btnAddTask.innerHTML = "Ajouter Tâche"
 
 
     for (let i = 0; i < todolists[y].todos.length; i++) {
       const inputTask = document.createElement("input");
-      inputTask.id = "inputTask"
+      inputTask.id = "inputTaskList-"+y+"inputTask-"+i;
 
       const deleteTask = document.createElement("button");
       deleteTask.className = "delete"
-      deleteTask.id = "btnDeleteTask"
+      deleteTask.id = "btnDeleteTaskList-"+y+"inputTask-"+i;
       deleteTask.innerHTML = "X"
       inputTask.value = todolists[y].todos[i];
 
@@ -102,6 +101,7 @@ function addToDoList() {
 }
 
 btnAjouter.addEventListener("click", addToDoList);
+
 
 
 
