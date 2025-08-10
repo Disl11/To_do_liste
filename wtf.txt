@@ -40,9 +40,26 @@ window.addEventListener("load", () =>{
 4. Modifier une item
 
 5. Supprimer une item
-
-Découper en fonction : une fonction = une responsabilité ex: creer une div, créer un bouton etc. avec des lignes qui vont saigner des yeux
+6. Supprimer une liste
 
 Local storage
+
+Au démarage de la page on va chercher la liste dans lelocal storage
+    let data = localStorage.getItem("todos");
+    if (data) {
+          todos = JSON.parse(data);
+    }else{
+        todos = [];
+    }
+        => à mettre dans le listener load de la window
+
+A chaque modifications d'une liste ou d'un tâche
+    localStorage.setItem("todos", JSON.stringify(todos));
+    a part la modification d'une tâche, quelle fonction est tjs appelée quand on change le reste ? displayList()
+    pour la modification d'une tâche => mettre l'instruction dans le listener change de l'input de la tâche
+
+Exercices spéciales fonctions en javascript
+
+Découper en fonction : une fonction = une responsabilité ex: creer une div, créer un bouton etc. avec des lignes qui vont saigner des yeux
 
 Drag and drop
