@@ -41,6 +41,8 @@ window.addEventListener("load", () =>{
 
 5. Supprimer une item
 
+Découper en fonction : une fonction = une responsabilité ex: creer une div, créer un bouton etc. avec des lignes qui vont saigner des yeux
+
 Local storage
 
 Drag and drop
