@@ -1,8 +1,27 @@
 
-function displayLists(todolists) {
-  //var todolist = { name: "ma todo", todos: ["abc", "azerty"] };
+let todos = [];
+window.addEventListener("load", () => {
+  
+  let data = localStorage.getItem("todos");
+    if (data) {
+          todos = JSON.parse(data);
+    }else{
+        todos = [];
+    } 
 
-  //var todolits = [todolist, todolist];
+    displayLists(todos);
+
+});
+
+   function saveToDos(){
+   localStorage.setItem("todos", JSON.stringify(todos));
+  }
+
+
+function displayLists(todolists) {
+  //let todolist = { name: "ma todo", todos: ["abc", "azerty"] };
+
+  //let todolits = [todolist, todolist];
 
   const area = document.querySelector("#area");
   area.innerHTML = "";
@@ -30,42 +49,40 @@ function displayLists(todolists) {
     const divNameBtn = document.createElement("div");
     divNameBtn.className = "regroup-btn";
 
-    const btnEditList = document.createElement("button");
-    btnEditList.className = "edit";
-    btnEditList.id = "btnEditList-"+y;
-    btnEditList.innerHTML = "✏️";
-    divNameBtn.appendChild(btnEditList);
-
+   
     const btnSupprList = document.createElement("button");
     btnSupprList.className = "delete";
     btnSupprList.id = "btnSupprList-"+y;
     btnSupprList.innerHTML = "X";
+
+    btnSupprList.addEventListener("click", () => {
+      deleteList(todolists);
+      displayLists(todos);
+    })
 
     divNameBtn.appendChild(btnSupprList);
     divNameList.appendChild(divNameBtn);
 
     const btnAddTask = document.createElement("button")
     btnAddTask.className = "addTask"
-    btnAddTask.id = "btnAddTaskList-"+ y;
+    btnAddTask.id = "btnAddTaskList-" + y;
     btnAddTask.innerHTML = "Ajouter Tâche";
 
 
     // Bouton add task
     btnAddTask.addEventListener("click", () => {
-      addEmptyTaskToList(y);
+      addEmptyTaskToList(todolists[y]);
       displayLists(todos);
 
     } )
 
     for (let i = 0; i < todolists[y].todos.length; i++) {
-      //fonction createInputTask
-
+      
       const inputTask = document.createElement("input");
       inputTask.id = "inputTaskList-"+ y +"inputTask-" + i;
 
-
       inputTask.addEventListener("change", (event) =>{
-           updateTaskToList(y,i,event.target.value);
+           updateTaskToList(todolists[y], i, event.target.value);
       })
     
 
@@ -74,13 +91,9 @@ function displayLists(todolists) {
       deleteTask.id = "btnDeleteTaskList-"+y+"inputTask-"+i;
 
       deleteTask.addEventListener("click", () => { 
-        deleteTaskToList(y);
-
+        deleteTaskToList(todolists[y], i);
       })
-          /* listneer click 
-       qui appelle deleteTaskToList(todolists[y], todolists[y].todos[i])
-       displayLists(todos)
-*/
+      
       deleteTask.innerHTML = "X";
       inputTask.value = todolists[y].todos[i];
 
@@ -101,14 +114,6 @@ function displayLists(todolists) {
   }
 }
 
-
-let todos = [];
-window.addEventListener("load", () => {
-  todos = [];
-  displayLists(todos);
-
-});
-
 const btnAjouter = document.querySelector(".ajouter");
 const input = document.querySelector("#inputList")
 
@@ -119,6 +124,7 @@ function addToDoList() {
   const newList = { name: listname, todos: [""] }
   input.value = "";
   todos.push(newList);
+  saveToDos();
   displayLists(todos);
 
 }
@@ -126,18 +132,26 @@ function addToDoList() {
 btnAjouter.addEventListener("click", addToDoList);
 
 
-function addEmptyTaskToList(y) {
-  todos[y].todos.push("");
+function addEmptyTaskToList(todolist) {
+  todolist.todos.push("");
+
    }
 
-function updateTaskToList(y,i,newValue){
-todos[y].todos[i] = newValue;
+function updateTaskToList(todolist, i, newValue){
+todolist.todos[i] = newValue;
+saveToDos();
 }
 
 
-function deleteTaskToList(y,i){
-todos[y].todos[i] = "";
-displayLists(todos);
+function deleteList(todolist, y){
+  todolist.splice(y,1);
+  saveToDos();
+  displayLists(todos);
+}
+
+function deleteTaskToList(todolist,i){
+todolist.todos.splice(i, 1);
+
 }
 
 
