@@ -3,27 +3,63 @@ body {
     margin: 0;
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+   background: linear-gradient(45deg, #79a7d3, #6883bc, #8a307f);
 }
 
 .title {
-    border: solid 2px;
+   
     margin: 10px;
     border-radius: 5px;
-    padding: 3px;
+    padding: 10px;
+}
+
+h1 {
+   font-size: 48px;   /* taille plus grande */
+    font-weight: bold; /* gras */
+    color: white;       /* couleur sombre */
+    margin: 20px 0;    /* un peu d'espace au-dessus et en dessous */
+    text-align: center; /* centrer le titre */
 }
 
 #sectionMain {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px;
+    width: 100%;
 }
 
+.divTitle{
+}
 
+.add {
+    
+  width: 30%;
+     display: flex;
+    justify-content: flex-end; 
+    align-items: center;   
+}
+
+.ajouter {
+    background-color: #f5f5f5; /* gris très clair */
+    color: #333;               /* texte gris foncé */
+    border: 2px solid black;    /* bordure discrète */
+    border-radius: 8px;        /* coins arrondis */
+    padding: 8px 16px;         /* espace à l’intérieur */
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease; /* transition douce pour hover */
+}
+
+.ajouter:hover {
+    background-color: #e0e0e0; /* gris un peu plus foncé */
+    border-color: #999;        /* bordure plus visible */
+    color: #111;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
 #area {
     height: 45%;
@@ -34,13 +70,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    
     gap: 10px;
 }
 
 
+/*  style des liste */
+
 #list{
-   border: solid;
+   border: solid 2px gray;
+   padding: 10px;
+   border-radius: 5px;
+background-color: rgba(204, 204, 204, 0.5);
 
 }
 
@@ -50,6 +91,31 @@ body {
     align-items: center;
 }
 
+.inputNameList{
+     border: none;     
+     border-radius: 5px;         
+    background-color:#898787; 
+    color: white;              
+    font-size: 16px;           
+    font-weight: 500;          
+    text-align: center;        
+    outline: none; 
+    padding: 10px;
+}
+
+.delete {
+    background-color: transparent;
+    border: none;
+    color: #a02346; /* bordeaux doux */
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete:hover {
+    color: #e07a9b; /* bordeaux clair au survol */
+    transform: scale(1.2);
+}
 
 .regroup-btn{
     display: flex;
@@ -57,19 +123,94 @@ body {
     gap: 3px;
 }
 
+h3 {
+    margin: 10px;
+}
+
 .liste-tache{
     display: flex;
     justify-content: center;
     flex-direction: column;
+  
 }
 
 #listTask{
     display: flex;
     flex-direction: column;
+    
 }
+
+
+
+.addTask {
+    background: rgba(30, 193, 1, 0.8); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 8px;                    
+    padding: 8px 12px;                    
+    font-size: 14px;                    
+    color: #fff;                           
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; 
+    margin: 10px;
+}
+
+
+.addTask:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+#h3NameList input {
+    width: 100px; /* plus petit pour le nom de la liste */
+    padding: 10px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(50, 50, 50, 0.6);
+    color: #fff;
+    text-align: center;
+}
+
+
+#listTask input {
+
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    text-align: center; /* centrer le texte */
+    background: white; /* effet verre */
+    color: #333; /* texte gris foncé */
+    font-size: 16px;
+    transition: all 0.3s ease;
+     width: 150px; /* plus large que le nom de la liste */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+
+
+}
+
+
+
+/* sur focus */
+#listTask input:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
 
 .divIB{
     display: flex;
     justify-content: center;
+    padding: 5px; /* pour le drag and drope */
+    gap: 5px;
 
+}
+
+@media (max-width: 500px) {
+    .addTask {
+        width: 100%;
+    }
+    #listTask input {
+        width: 80%;
+    }
 }
