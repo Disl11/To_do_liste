@@ -30,10 +30,13 @@ function displayLists(todolists) {
 
     const divTask = document.createElement("div");
     divTask.id = "listTask";
+
     const divNameList = document.createElement("div");
     divNameList.className = "title-liste";
+
     const h3NameList = document.createElement("h3");
     h3NameList.id = "h3NameList";
+
     const inputNameList = document.createElement("input");
     inputNameList.id = "inputNameList-" + y;
     inputNameList.className = "inputNameList";
@@ -44,9 +47,18 @@ function displayLists(todolists) {
       saveToDos();
     });
 
-    h3NameList.appendChild(inputNameList);
+    // ===== dateTime fonctionel mais peu pas modifier le css ======
+    const inputDateList = document.createElement("input");
+    inputDateList.type = "datetime-local";
+    inputDateList.value = todolists[y].date || "";
+    inputDateList.className = "small-datetime";
+    inputDateList.addEventListener("change", (event) => {
+      updateListDate(todolists[y], event.target.value);
+    });
 
+    h3NameList.appendChild(inputNameList);
     divNameList.appendChild(h3NameList);
+
     const divNameBtn = document.createElement("div");
     divNameBtn.className = "regroup-btn";
 
@@ -74,7 +86,7 @@ function displayLists(todolists) {
       displayLists(todos);
     });
 
-    // Boucle des tâches
+    // Boucle des tâches embriquer dans boucle des liste
     for (let i = 0; i < todolists[y].todos.length; i++) {
       const divIB = document.createElement("div");
       divIB.className = "divIB";
@@ -117,6 +129,7 @@ function displayLists(todolists) {
       const inputTask = document.createElement("input");
       inputTask.id = "inputTaskList-" + y + "inputTask-" + i;
       inputTask.value = todolists[y].todos[i];
+      inputTask.placeholder = "Saisis ta tâche...";
 
       inputTask.addEventListener("change", (event) => {
         updateTaskToList(todolists[y], i, event.target.value);
@@ -136,8 +149,8 @@ function displayLists(todolists) {
 
     divList.appendChild(divNameList);
     divList.appendChild(divTask);
-
     divTask.appendChild(btnAddTask);
+    divTask.appendChild(inputDateList); // affichage date
     area.appendChild(divList);
   }
 }
@@ -196,4 +209,10 @@ function moveTask(fromList, fromIndex, toList, toIndex) {
 
   saveToDos();
   displayLists(todos);
+}
+
+// function pour date
+function updateListDate(todolist, newDate) {
+  todolist.date = newDate;
+  saveToDos();
 }
