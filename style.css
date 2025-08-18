@@ -31,8 +31,6 @@ h1 {
     width: 100%;
 }
 
-.divTitle{
-}
 
 .add {
     
@@ -43,20 +41,20 @@ h1 {
 }
 
 .ajouter {
-    background-color: #f5f5f5; /* gris très clair */
-    color: #333;               /* texte gris foncé */
-    border: 2px solid black;    /* bordure discrète */
-    border-radius: 8px;        /* coins arrondis */
-    padding: 8px 16px;         /* espace à l’intérieur */
+    background-color: #f5f5f5; 
+    color: #333;               
+    border: 2px solid black;    
+    border-radius: 8px;        
+    padding: 8px 16px;       
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease; /* transition douce pour hover */
+    transition: all 0.3s ease;
 }
 
 .ajouter:hover {
-    background-color: #e0e0e0; /* gris un peu plus foncé */
-    border-color: #999;        /* bordure plus visible */
+    background-color: #e0e0e0; 
+    border-color: #999;        
     color: #111;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -74,7 +72,7 @@ h1 {
 }
 
 
-/*  style des liste */
+/*  ================   style des liste ===================== */
 
 #list{
    border: solid 2px gray;
@@ -105,14 +103,14 @@ background-color: rgba(204, 204, 204, 0.5);
 .delete {
     background-color: transparent;
     border: none;
-    color: #a02346; /* bordeaux doux */
+    color: #a02346; 
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .delete:hover {
-    color: #e07a9b; /* bordeaux clair au survol */
+    color: #e07a9b; 
     transform: scale(1.2);
 }
 
@@ -174,12 +172,12 @@ h3 {
     margin: 5px 0;
     border: none;
     border-radius: 8px;
-    text-align: center; /* centrer le texte */
-    background: white; /* effet verre */
-    color: #333; /* texte gris foncé */
+    text-align: center; 
+    background: white; 
+    color: #333; 
     font-size: 16px;
     transition: all 0.3s ease;
-     width: 150px; /* plus large que le nom de la liste */
+     width: 150px; 
     padding: 5px 10px;
     border: none;
     border-radius: 6px;
@@ -210,6 +208,12 @@ h3 {
     font-size: 8px;
     height: 10px;
 }
+
+
+
+
+/* media query */
+
 
 @media (max-width: 500px) {
     .addTask {

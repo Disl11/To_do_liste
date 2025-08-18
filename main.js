@@ -1,6 +1,7 @@
 let todos = [];
 
-// local storage
+// ==========  local storage ================
+
 window.addEventListener("load", () => {
   // recuper le storage au chargement de la page
   let data = localStorage.getItem("todos");
@@ -18,7 +19,7 @@ function saveToDos() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// =========== function affichage list ===========
+// ================= function affichage list ====================
 
 function displayLists(todolists) {
   const area = document.querySelector("#area");
@@ -42,16 +43,18 @@ function displayLists(todolists) {
     inputNameList.className = "inputNameList";
     inputNameList.value = todolists[y].name;
 
+    // event modification name list
     inputNameList.addEventListener("change", (event) => {
       todolists[y].name = event.target.value;
       saveToDos();
     });
 
-    // ===== dateTime fonctionel mais peu pas modifier le css ======
+    // ========= dateTime fonctionel mais peu pas modifier le css =========
     const inputDateList = document.createElement("input");
     inputDateList.type = "datetime-local";
     inputDateList.value = todolists[y].date || "";
     inputDateList.className = "small-datetime";
+    // Boutton date
     inputDateList.addEventListener("change", (event) => {
       updateListDate(todolists[y], event.target.value);
     });
@@ -66,7 +69,7 @@ function displayLists(todolists) {
     btnSupprList.className = "delete";
     btnSupprList.id = "btnSupprList-" + y;
     btnSupprList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-
+    // event delete liste
     btnSupprList.addEventListener("click", () => {
       deleteList(todos, y);
     });
@@ -79,14 +82,15 @@ function displayLists(todolists) {
     btnAddTask.id = "btnAddTaskList-" + y;
     btnAddTask.innerHTML = "Ajouter Tâche";
 
-    // bouton add Task
+    // event add Task
     btnAddTask.addEventListener("click", () => {
       addEmptyTaskToList(todolists[y]);
       saveToDos();
       displayLists(todos);
     });
 
-    // Boucle des tâches embriquer dans boucle des liste
+    // ======== Boucle des task embriquer dans boucle des liste ========
+
     for (let i = 0; i < todolists[y].todos.length; i++) {
       const divIB = document.createElement("div");
       divIB.className = "divIB";
@@ -126,11 +130,12 @@ function displayLists(todolists) {
         moveTask(data.fromList, data.fromIndex, y, i);
       });
 
+      // ========== Task ===========
       const inputTask = document.createElement("input");
       inputTask.id = "inputTaskList-" + y + "inputTask-" + i;
       inputTask.value = todolists[y].todos[i];
       inputTask.placeholder = "Saisis ta tâche...";
-
+      // event modifer
       inputTask.addEventListener("change", (event) => {
         updateTaskToList(todolists[y], i, event.target.value);
       });
@@ -138,19 +143,22 @@ function displayLists(todolists) {
       const deleteTask = document.createElement("button");
       deleteTask.className = "delete";
       deleteTask.innerHTML = "X";
+      // event delet task
       deleteTask.addEventListener("click", () => {
         deleteTaskToList(todolists[y], i);
       });
 
+      //  ====== affichage  task =========
       divIB.appendChild(inputTask);
       divIB.appendChild(deleteTask);
       divTask.appendChild(divIB);
     }
 
+    //  ========== affichage liste ======
     divList.appendChild(divNameList);
     divList.appendChild(divTask);
     divTask.appendChild(btnAddTask);
-    divTask.appendChild(inputDateList); // affichage date
+    divTask.appendChild(inputDateList);
     area.appendChild(divList);
   }
 }
@@ -159,7 +167,7 @@ function displayLists(todolists) {
 
 const btnAjouter = document.querySelector(".ajouter");
 
-// function ajouter liste avec promte
+// function ajouter liste avec promt
 function addToDoList() {
   const listname = prompt("Nom de la liste:");
 
@@ -173,6 +181,7 @@ function addToDoList() {
   displayLists(todos);
 }
 
+// boutton ajouter list
 btnAjouter.addEventListener("click", addToDoList);
 
 // function ajouter une liste vide
@@ -186,7 +195,7 @@ function updateTaskToList(todolist, i, newValue) {
   saveToDos();
 }
 
-// Function suprimer une lisete
+// Function suprimer une liste
 function deleteList(todolists, index) {
   todolists.splice(index, 1);
   saveToDos();
