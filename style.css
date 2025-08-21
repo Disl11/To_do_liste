@@ -4,6 +4,8 @@ html, body {
 }
 
 body {
+    padding: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
