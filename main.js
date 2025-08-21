@@ -5,12 +5,7 @@ let todos = [];
 window.addEventListener("load", () => {
   // recuper le storage au chargement de la page
   let data = localStorage.getItem("todos");
-  if (data) {
-    todos = JSON.parse(data);
-  } else {
-    todos = [];
-  }
-
+  let todos = data ? JSON.parse(data) : [];
   displayLists(todos);
 });
 
@@ -35,8 +30,8 @@ function displayLists(todolists) {
     const divNameList = document.createElement("div");
     divNameList.className = "title-liste";
 
-    const h3NameList = document.createElement("h3");
-    h3NameList.id = "h3NameList";
+    const h3NameList = document.createElement("h2");
+    h3NameList.id = "h2NameList";
 
     const inputNameList = document.createElement("input");
     inputNameList.id = "inputNameList-" + y;
@@ -66,6 +61,10 @@ function displayLists(todolists) {
     divNameBtn.className = "regroup-btn";
 
     const btnSupprList = document.createElement("button");
+    btnSupprList.setAttribute(
+      "aria-label",
+      "Supprimer la liste " + todolists[y].name
+    );
     btnSupprList.className = "delete";
     btnSupprList.id = "btnSupprList-" + y;
     btnSupprList.innerHTML = '<i class="fas fa-trash-alt"></i>';
@@ -80,6 +79,10 @@ function displayLists(todolists) {
     const btnAddTask = document.createElement("button");
     btnAddTask.className = "addTask";
     btnAddTask.id = "btnAddTaskList-" + y;
+    btnAddTask.setAttribute(
+      "aria-label",
+      "Ajouter une tâche à la liste " + todolists[y].name
+    );
     btnAddTask.innerHTML = "Ajouter Tâche";
 
     // event add Task
@@ -141,8 +144,17 @@ function displayLists(todolists) {
       });
 
       const deleteTask = document.createElement("button");
+      deleteTask.setAttribute(
+        "aria-label",
+        'Supprimer la tâche "' +
+          todolists[y].todos[i] +
+          '" de la liste "' +
+          todolists[y].name +
+          '"'
+      );
       deleteTask.className = "delete";
       deleteTask.innerHTML = "X";
+
       // event delet task
       deleteTask.addEventListener("click", () => {
         deleteTaskToList(todolists[y], i);
