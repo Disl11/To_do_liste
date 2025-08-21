@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <section id="top-page">
+    <section id="top-page" aria-labelledby="top-page">
         <header>
             <img src="./images/brian logo 2.png" alt="Logo du site" width="80" height="80" />
             <nav>
@@ -38,19 +38,20 @@
         <h2>Contactez-nous</h2>
         <form>
             <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            <input type="text" id="name" name="name" placeholder="Votre nom" aria-label="Nom complet" required>
 
             <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Votre email" required>
+            <input type="email" id="email" name="email" placeholder="Votre email" aria-label="Nom complet" required>
 
             <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message" aria-label="Nom complet"
+                required></textarea>
 
             <button type="submit">Envoyer</button>
         </form>
     </section>
     <footer>
-        <img src="images/brian logo 2.png" alt="Logo du site" width="80" height="80" />
+        <img src="images/brian logo 2.png" alt="Logo du site" width="80" height="80" loading="lazy" />
         <p> Copyright &copy; 2025. Tous droits réservés</p>
     </footer>
 </body>
