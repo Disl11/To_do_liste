@@ -162,3 +162,44 @@ footer {
   justify-content: center;
 }
 
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    #landing-page {
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 25px;
+        margin: 20px;
+        text-align: center;
+    }
+
+    #information article {
+        width: 90%;
+        margin: 20px;
+        height: auto;
+    }
+
+    section#contact {
+        width: 90%;
+        margin: 40px auto;
+        padding: 15px;
+    }
+
+  
+    footer {
+        height: auto;
+        padding: 15px;
+    }
+}

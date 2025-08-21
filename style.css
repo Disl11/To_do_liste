@@ -215,11 +215,20 @@ h2 {
 /* media query */
 
 
-@media (max-width: 500px) {
-    .addTask {
-        width: 100%;
+@media screen and (max-width: 768px) {
+
+
+#sectionMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    #area {
+        max-width: 71%;
     }
-    #listTask input {
-        width: 80%;
+
+    .task {
+        width: 100%;
     }
 }
