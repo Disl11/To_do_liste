@@ -1,25 +1,46 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
-    padding: 0;
-    margin: 0;
-    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     background: linear-gradient(45deg, #79a7d3, #6883bc, #8a307f);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.title {
-   
-    margin: 10px;
-    border-radius: 5px;
-    padding: 10px;
+/* ------------- navBar et header--------------- */
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #181f1f;
 }
+
+nav a{
+    display: flex;
+    color: black;
+    margin-left: 30px;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    
+}
+
 
 h1 {
    font-size: 48px;   
     font-weight: bold; 
-    color: white;       
-    margin: 20px 0;   
+    color: white;         
     text-align: center; 
 }
 
@@ -27,7 +48,6 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     width: 100%;
 }
 
@@ -69,6 +89,7 @@ h1 {
     align-items: center;
     padding: 10px;
     gap: 10px;
+    margin: 60px;
 }
 
 
@@ -137,7 +158,7 @@ h2 {
     
 }
 
-
+/* TASK */
 
 .addTask {
     background: rgba(30, 193, 1, 0.8); 
@@ -181,13 +202,10 @@ h2 {
     padding: 5px 10px;
     border: none;
     border-radius: 6px;
-
-
 }
 
 
 
-/* sur focus */
 #listTask input:focus {
     outline: none;
     background: white;
@@ -207,6 +225,27 @@ h2 {
     width: 200px;
     font-size: 8px;
     height: 10px;
+}
+
+
+footer {
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #181f1f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#sectionMain, #area {
+  flex: 1;
 }
 
 
