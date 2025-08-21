@@ -4,8 +4,9 @@
 }
 
 
+
 body{
-    height: 150vh;
+    
     background: linear-gradient(45deg, #79a7d3, #6883bc, #8a307f);
 }
 
@@ -53,7 +54,6 @@ nav ul {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
 }
@@ -61,10 +61,6 @@ nav ul {
 .button:hover{
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   background: linear-gradient(135deg, #fc253e, #c0b7ca);
-}
-
-.button:active {
-  transform: scale(0.96);
 }
 
 .button a {
@@ -87,7 +83,7 @@ nav ul {
     background-color: white;
     height: 20vh;
     width: 50%;
-    margin: 50px;
+    margin: 100px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -96,10 +92,6 @@ nav ul {
     border-radius: 20px;
 }
 
-img{
-    height: 80px;
-    width: 80px;
-}
 
 
 /* section */
@@ -109,7 +101,7 @@ section#contact {
       padding: 20px;
       border-radius: 10px;
       max-width: 600px;
-      margin: auto;
+      margin: 80px auto; 
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
@@ -143,6 +135,8 @@ section#contact {
     button:hover {
       background: linear-gradient(135deg, #fc253e, #c0b7ca);
     }
+
+
 footer {
   height: 20vh;
   text-align: center;
