@@ -5,7 +5,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-   background: linear-gradient(45deg, #79a7d3, #6883bc, #8a307f);
+    background: linear-gradient(45deg, #79a7d3, #6883bc, #8a307f);
 }
 
 .title {
@@ -16,11 +16,11 @@ body {
 }
 
 h1 {
-   font-size: 48px;   /* taille plus grande */
-    font-weight: bold; /* gras */
-    color: white;       /* couleur sombre */
-    margin: 20px 0;    /* un peu d'espace au-dessus et en dessous */
-    text-align: center; /* centrer le titre */
+   font-size: 48px;   
+    font-weight: bold; 
+    color: white;       
+    margin: 20px 0;   
+    text-align: center; 
 }
 
 #sectionMain {
