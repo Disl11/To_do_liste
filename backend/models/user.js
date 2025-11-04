@@ -41,3 +41,19 @@ export async function addUser(newUser) {
 	await user.save();
 	return true;
 }
+
+//login
+export async function loginUser(email, password) {
+	const user = await User.findOne({ email });
+	if (!user) {
+		return null;
+	}
+
+	const goodPassword = await bcrypt.compare(password, user.password);
+
+	if (!goodPassword) {
+		return null;
+	}
+
+	return user;
+}

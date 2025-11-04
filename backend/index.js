@@ -2,13 +2,17 @@ import express from "express";
 import ollama from "ollama";
 import "./config/db.js";
 import userRoutes from "./route/userRoutes.js";
+import cors from "cors";
+import helmet from "helmet";
 
 const app = express();
 
+app.use(helmet());
+app.use(cors());
 app.use(express.json());
+
 const PORT = 3000;
 
-//router
 app.use("/user", userRoutes);
 
 // app.post("/api/ask", async (req, res) => {

@@ -1,4 +1,5 @@
-import { getUser, addUser, getUserById } from "../models/user.js";
+import { getUser, addUser, getUserById, loginUser } from "../models/user.js";
+import jwt from "jsonwebtoken";
 
 //* READ
 export async function getUserControlleur(req, res) {
@@ -41,5 +42,31 @@ export async function addUserControlleur(req, res) {
 		return res.status(200).json({ message: "Resgistration Successful" });
 	} catch (err) {
 		return res.status(500).json({ message: err.message });
+	}
+}
+
+export async function loginUserControlleur(req, res) {
+	try {
+		const { email, password } = req.body;
+		const user = await loginUser(email, password);
+
+		if (!user) {
+			return res.status(401).json({
+				success: false,
+				message: "invalide email or password",
+			});
+		}
+
+		const token = jwt.sign(
+			{ id: user._id, email: user.email },
+			process.env.JWT_SECRET,
+			{ expiresIn: "2h" }
+		);
+
+		return res
+			.status(200)
+			.json({ success: true, message: "Login successful", token, user });
+	} catch (err) {
+		return res.status(500).json({ success: false, message: err.message });
 	}
 }
