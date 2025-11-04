@@ -4,6 +4,7 @@ import "./config/db.js";
 import userRoutes from "./route/userRoutes.js";
 import cors from "cors";
 import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 
 const app = express();
 
@@ -13,7 +14,18 @@ app.use(express.json());
 
 const PORT = 3000;
 
+const limiter = rateLimit({
+	window: 15 * 60 * 1000,
+	max: 100,
+	standardHeaders: true,
+	legacyHeaders: false,
+});
+app.use(limiter);
+
 app.use("/user", userRoutes);
+
+//savoir si le server ce connect
+app.listen(PORT, () => console.log(`tout est ok sur le port ${PORT}`));
 
 // app.post("/api/ask", async (req, res) => {
 // 	const { question } = req.body;
@@ -34,6 +46,3 @@ app.use("/user", userRoutes);
 // 		});
 // 	}
 // });
-
-//savoir si le server ce connect
-app.listen(PORT, () => console.log(`tout est ok sur le port ${PORT}`));
