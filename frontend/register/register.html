@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>register</title>
+	</head>
+	<body>
+		<h1>Register</h1>
+
+		<form id="register">
+			<ul>
+				<li>
+					<label for="name">Nom:</label>
+					<input type="text" id="name" name="name" />
+				</li>
+				<li>
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" />
+				</li>
+				<li>
+					<label for="mail">E-mail:</label>
+					<input type="email" id="mail" name="mail" />
+				</li>
+				<li>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" />
+				</li>
+			</ul>
+			<button type="submit">Valider inscription</button>
+		</form>
+		<a href="/frontend/login/login.html">Login</a>
+		<script type="module" src="./register.js"></script>
+	</body>
+</html>

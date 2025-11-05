@@ -12,7 +12,7 @@ const router = Router();
 router.get("/", getUserControlleur);
 router.get("/:id", getUserByIdControlleur);
 router.get("/", verifyToken, getUserControlleur);
-router.get(":id", verifyToken, getUserByIdControlleur);
+router.get("/:id", verifyToken, getUserByIdControlleur);
 
 router.post("/login", loginUserControlleur);
 router.post("/", addUserControlleur);
